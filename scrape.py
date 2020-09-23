@@ -140,5 +140,3 @@ def main(symbol, timeout):
 if __name__ == "__main__":
     main()
 
-
-# todo: create API to fetch (max) 1000 tradingview posts (on a symbol).
