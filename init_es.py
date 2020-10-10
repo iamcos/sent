@@ -44,11 +44,19 @@ def create_tradingview_index(index_name):
         }
     }
     client.indices.create(index=index_name, body=request_body)
+
     print('Finished creating index: {}'.format(index_name))
 
+def to_index_name(exchange, primarycoin, secondarycoin):
+    index_name = f"{exchange}_{primarycoin}_{secondarycoin}"
+    return index_name
+
+def from_index_name(index_name):
+    data = index_name.split('_')
+    return data
 
 def main():
-    for symbol in ['btcusdt', 'ethusdt']:
+    for symbol in ['eosusdt', 'neobtc']:
         create_tradingview_index(index_name='tradingview_{}'.format(symbol))
 
 
